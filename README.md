@@ -4,7 +4,7 @@
 
 ### Usage
 
-Please read this Bttc testnet install guide:
+Please read this Bttc testnet installation guide,files listed in this repo will be use in this installation guide:
 
 [url of bttc  testnet  node installation guide]
 
@@ -15,12 +15,12 @@ Delivery:
 
 setup delivery
 ```bash
-bash delivery/setup.sh
+ delivery/setup.sh
 ```
 
 delivery genesis.json
 ```bash
-bash delivery/config/genesis.json
+delivery/config/genesis.json
 ```
 
 delivery seeds.txt
@@ -33,27 +33,27 @@ Bttc:
 
 bttc clean script
 ```bash
-bash bttc/clean.sh
+ bttc/clean.sh
 ```
 
 bttc setup script
 ```bash
-bash bttc/setup.sh
+ bttc/setup.sh
 ```
 
 bttc start script
 ```bash
-bash bttc/start.sh
+ bttc/start.sh
 ```
 
 bttc genesis json
 ```bash
-bash bttc/genesis.json
+ bttc/genesis.json
 ```
 
 bttc static nodes
 ```bash
-bash bttc/static-nodes.json
+ bttc/static-nodes.json
 ```
 
 ## License

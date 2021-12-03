@@ -4,9 +4,8 @@
 
 ### Usage
 
-Please read this Bttc testnet installation guide,files listed in this repo will be use in this installation guide:
-
-[url of bttc  testnet  node installation guide]
+Please read this [Bttc testnet deployment guide](https://doc.bittorrentchain.io/v1/doc/simplified/node.html),
+these files which listed in this repo will be use in this deployment guide.
 
 
 **Important Configs**

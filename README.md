@@ -4,7 +4,7 @@
 
 ### Usage
 
-Please read this [Bttc testnet deployment guide](https://doc.bittorrentchain.io/v1/doc/simplified/node.html),
+Please read this [Bttc testnet deployment guide](https://doc.bittorrentchain.io/v1/doc/node.html),
 these files which listed in this repo will be use in this deployment guide.
 
 

@@ -13,14 +13,14 @@ ADDRESS=$1
 BTTC_DIR=${BTTC_DIR:-~/.bttc}
 DATA_DIR=$BTTC_DIR/data
 
-bttc --datadir $BTTC_DATA_DIR \
+bttc --datadir $DATA_DIR \
   --port 30303 \
   --bor.heimdall "http://localhost:1317" \
   --http --http.addr '0.0.0.0' \
   --http.vhosts '*' \
   --http.corsdomain '*' \
   --http.port 8545 \
-  --ipcpath $BTTC_DATA_DIR/bttc.ipc \
+  --ipcpath $DATA_DIR/bttc.ipc \
   --http.api 'eth,net,web3,txpool,bor' \
   --syncmode 'full' \
   --networkid 199 \

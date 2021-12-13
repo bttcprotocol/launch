@@ -13,21 +13,18 @@ ADDRESS=$1
 BTTC_DIR=${BTTC_DIR:-~/.bttc}
 DATA_DIR=$BTTC_DIR/data
 
-bttc --datadir $DATA_DIR \
+bttc --datadir $BTTC_DATA_DIR \
   --port 30303 \
   --bor.heimdall "http://localhost:1317" \
   --http --http.addr '0.0.0.0' \
   --http.vhosts '*' \
   --http.corsdomain '*' \
   --http.port 8545 \
-  --ipcpath $DATA_DIR/bor.ipc \
+  --ipcpath $BTTC_DATA_DIR/bttc.ipc \
   --http.api 'eth,net,web3,txpool,bor' \
   --syncmode 'full' \
   --networkid 199 \
-  --miner.gaslimit '20000000' \
-  --miner.gasprice '300000000000000' \
-  --miner.gastarget '20000000' \
-  --rpc.allow-unprotected-txs \
+  --rpc.allow-unprotected-txs --rpc.txfeecap 0 \
   --txpool.nolocals \
   --txpool.accountslots 16 \
   --txpool.globalslots 131072 \
@@ -37,8 +34,4 @@ bttc --datadir $DATA_DIR \
   --maxpeers 200 \
   --metrics \
   --pprof --pprof.port 7071 --pprof.addr '0.0.0.0' \
-  --unlock $ADDRESS \
-  --keystore $BTTC_DIR/keystore \
-  --password $BTTC_DIR/password.txt \
   --allow-insecure-unlock \
-  --rpc.txfeecap 0

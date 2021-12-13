@@ -21,7 +21,7 @@ $ b2sum delivery/config/genesis.json
 
 It includes a genesis time of 2021-11-30T04:28:03.177054Z. 
 
-The recommended software version is master branch of the [delivery]() and [bttc]() node software. See the installation instructions and the guide to joining mainnet [here]().
+The recommended software version is master branch of the [delivery](https://github.com/bttcprotocol/delivery) and [bttc](https://github.com/bttcprotocol/bttc) node software. See the installation instructions and the guide to joining mainnet [here](https://doc.bittorrentchain.io/v1/doc/node.html).
 
 Users wishing to interact with the network should carefully review how to protect themselves and the security advisories in the recent communication provided in the docs on preparing for main net launch.
 

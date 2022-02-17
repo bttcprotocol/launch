@@ -1,17 +1,12 @@
 #!/usr/bin/env sh
 
-set -x #echo on
-
-if [ -z "$1" ]
-  then
-    echo "Address is required as argument"
-  exit 1
-fi
-
-ADDRESS=$1
 
 BTTC_DIR=${BTTC_DIR:-~/.bttc}
 DATA_DIR=$BTTC_DIR/data
+
+
+ADDRESS="`cat $BTTC_DIR/address.txt`"
+
 
 bttc --datadir $DATA_DIR \
   --port 30303 \

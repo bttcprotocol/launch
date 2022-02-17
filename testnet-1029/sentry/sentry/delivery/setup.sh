@@ -7,7 +7,7 @@ DELIVERY_HOME=~/.deliveryd
 deliveryd init --chain-id delivery-199
 
 # create logs directory
-mkdir -p $DELIVERY_HOME/logs
+mkdir -p $NODE_DIR/delivery/logs
 
 # copy node directories to home directories
 cp -rf $NODE_DIR/delivery/config/genesis.json $DELIVERY_HOME/config/

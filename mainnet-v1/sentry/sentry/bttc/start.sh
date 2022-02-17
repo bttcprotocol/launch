@@ -2,14 +2,6 @@
 
 set -x #echo on
 
-if [ -z "$1" ]
-  then
-    echo "Address is required as argument"
-  exit 1
-fi
-
-ADDRESS=$1
-
 BTTC_DIR=${BTTC_DIR:-~/.bttc}
 DATA_DIR=$BTTC_DIR/data
 

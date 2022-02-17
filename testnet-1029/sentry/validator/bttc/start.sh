@@ -36,5 +36,5 @@ bttc --datadir $DATA_DIR \
   --keystore $BTTC_DIR/keystore \
   --password $BTTC_DIR/password.txt \
   --allow-insecure-unlock \
-  --rpc.txfeecap 0
+  --rpc.txfeecap 0 \
   --mine

@@ -29,4 +29,4 @@ bttc --datadir $DATA_DIR \
   --maxpeers 200 \
   --metrics \
   --pprof --pprof.port 7071 --pprof.addr '0.0.0.0' \
-  --allow-insecure-unlock \
+  --allow-insecure-unlock 

@@ -38,3 +38,4 @@ bttc --datadir $DATA_DIR \
   --metrics \
   --pprof --pprof.port 7071 --pprof.addr '0.0.0.0' \
   --allow-insecure-unlock \
+  --mine

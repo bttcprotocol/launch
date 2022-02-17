@@ -1,13 +1,13 @@
 #!/usr/bin/env sh
 
 # set -x #echo on
-
+NODE_DIR=~/node
 BTTC_DIR=${BTTC_DIR:-~/.bttc}
 DATA_DIR=$BTTC_DIR/data
-NODE_KEY=~/nodekey
+NODE_KEY=$BTTC_DIR/nodekey
 
 # create bttc and keystore directory
-mkdir -p $BTTC_DIR $BTTC_DIR/keystore $BTTC_DIR/logs
+mkdir -p $BTTC_DIR $BTTC_DIR/keystore $NODE_DIR/bttc/logs
 
 # init bttc
 bttc --datadir $DATA_DIR init ./genesis.json
@@ -21,6 +21,6 @@ if [ ! -f $NODE_KEY ]; then
 fi
 
 # copy node key file
-cp $NODE_KEY $DATA_DIR/bor/
+cp $NODE_KEY $BTTC_DIR/
 
 echo "Setup done!"

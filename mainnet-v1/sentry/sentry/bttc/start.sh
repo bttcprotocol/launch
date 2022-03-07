@@ -2,14 +2,6 @@
 
 set -x #echo on
 
-if [ -z "$1" ]
-  then
-    echo "Address is required as argument"
-  exit 1
-fi
-
-ADDRESS=$1
-
 BTTC_DIR=${BTTC_DIR:-~/.bttc}
 DATA_DIR=$BTTC_DIR/data
 
@@ -28,6 +20,7 @@ bttc --datadir $DATA_DIR \
   --miner.gaslimit '20000000' \
   --miner.gasprice '300000000000000' \
   --miner.gastarget '20000000' \
+  --gpo.maxprice '500000000000000' \
   --txpool.nolocals \
   --txpool.accountslots 16 \
   --txpool.globalslots 131072 \
@@ -36,5 +29,5 @@ bttc --datadir $DATA_DIR \
   --txpool.lifetime '1h30m0s' \
   --maxpeers 200 \
   --metrics \
-  --pprof --pprof.port 7071 --pprof.addr '0.0.0.0' \
-  --allow-insecure-unlock \
+  --pprof --pprof.port 7071 --pprof.addr '0.0.0.0'
+

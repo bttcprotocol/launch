@@ -16,7 +16,7 @@ DATA_DIR=$BTTC_DIR/data
 bttc --datadir $DATA_DIR \
   --port 30303 \
   --bor.heimdall "http://localhost:1317" \
-  --http --http.addr '0.0.0.0' \
+  --http --http.addr '127.0.0.1' \
   --http.vhosts '*' \
   --http.corsdomain '*' \
   --http.port 8545 \

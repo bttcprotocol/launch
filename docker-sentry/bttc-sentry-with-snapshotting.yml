@@ -1,0 +1,85 @@
+version: "3.3"
+
+networks:
+  devnet-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.1.0/24
+
+services:
+
+  delivery0:
+    image: "delivery:${DELIVERY_TAG}"
+    command: >
+      bash -c "
+        deliveryd init --home /root/.deliveryd --chain-id ${DELIVERY_CHAIN_ID} \
+        && if [ ${BTTC_MODE} == \"archive\" ]
+           then
+             tar -xzvf /root/snapshots/${DELIVERY_ARCHIVE_NODE_SNAPSHOT_FILE} -C /root/.deliveryd/data/
+           else
+             tar -xzvf /root/snapshots/${DELIVERY_FULL_NODE_SNAPSHOT_FILE} -C /root/.deliveryd/data/
+        fi \
+        && wget -O /root/.deliveryd/config/genesis.json ${DELIVERY_GENESIS_URL} -P /root/.deliveryd/config \
+        && sed -i '/seeds =/c\seeds = \"${DELIVERY_SEEDS}\"' /root/.deliveryd/config/config.toml \
+        && sed -i '/26657/c\laddr = \"tcp://0.0.0.0:26657\"' /root/.deliveryd/config/config.toml \
+        && sed -i '/bttc_rpc_url/c\bttc_rpc_url = \"${DELIVERY_BTTC_RPC_URL}\"' /root/.deliveryd/config/delivery-config.toml \
+        && sed -i '/eth_rpc_url/c\eth_rpc_url = \"${DELIVERY_ETH_RPC_URL}\"' /root/.deliveryd/config/delivery-config.toml \
+        && sed -i '/bsc_rpc_url/c\bsc_rpc_url = \"${BSC_RPC_URL}\"' /root/.deliveryd/config/delivery-config.toml \
+        && sed -i '/tron_rpc_url/c\tron_rpc_url = \"${TRON_RPC_URL}\"' /root/.deliveryd/config/delivery-config.toml \
+        && sed -i '/tron_grid_url/c\tron_grid_url = \"${TRON_GRID_URL}\"' /root/.deliveryd/config/delivery-config.toml \
+        && cd /root/scripts && sh delivery-startup.sh && sleep infinity
+        "
+    container_name: delivery0
+    networks:
+      - devnet-network
+    volumes:
+      - ./delivery/scripts:/root/scripts
+      - ./delivery/logs/:/root/logs/
+      - ./delivery/deliveryd/:/root/.deliveryd
+      - ./delivery/snapshots/:/root/snapshots/
+    ports:
+      - "1317:1317"
+      - "26657:26657"
+      - "26656:26656"
+    
+  bttc0:
+    image: "bttc:${BTTC_TAG}"
+    container_name: bttc0
+    command: >
+      sh -c "
+        cd /root \
+        && wget -O setup.sh ${BTTC_SETUP} \
+        && wget -O genesis.json ${BTTC_GENESIS} \
+        && wget -O static-nodes.json ${BTTC_STATIC_FILE} \
+        && sh setup.sh \
+        && if [ ! -f \"start.sh\" ]
+        then
+          if [ ${BTTC_MODE} == \"archive\" ]
+          then
+            tar -xzvf /root/snapshots/${BTTC_ARCHIVE_NODE_SNAPSHOT_FILE} -C /root/.bttc/data/bor/
+          else
+            tar -xzvf /root/snapshots/${BTTC_FULL_NODE_SNAPSHOT_FILE} -C /root/.bttc/data/bor/
+          fi
+        fi \
+        && wget -O start.sh ${BTTC_START} \
+        && if [ \"${BTTC_MODE}\" == \"archive\" ]
+          then
+            sed -i '/datadir/ a --gcmode \"archive\" \\\' start.sh && sed -i '/datadir/ a --ws --ws.port 8546 --ws.addr 0.0.0.0 --ws.origins \"*\" \\\' start.sh 
+          fi \
+        && sed -i '/--bor.heimdall/c\  --bor.heimdall \"http://delivery0:1317\"\\\' start.sh \
+        && sed -i '/--metrics/c\  --bootnodes \"${BTTC_BOOTNODES}\" \\\' start.sh \
+        && cat start.sh \
+        && sh start.sh > /root/logs/bttc.log 2>&1
+      "
+    networks:
+      devnet-network:
+          ipv4_address: 172.20.1.100
+    volumes:
+      - ./bttc/:/root/.bttc
+      - ./bttc/logs:/root/logs
+      - ./bttc/snapshots/:/root/snapshots/
+    ports:
+      - "8545:8545"
+      - "8546:8546"
+      - "30303:30303"

@@ -1,4 +1,6 @@
 [
+  "<replace with enode://sentry_machine_enodeID@sentry_machine_ip:30303>",
+  // public fullnode seeds, please do not change
   "enode://2e6a732ba9d0fcf102a4f4bda7d76f28095c9f03ee56bc89dc5c2235cd527c914b6063b0c76598cc37287f0594ae4022df550c592b3ba2a56a9f02810edbeee1@52.53.72.234:30303",
   "enode://3d7da6d583072fbbe733135047010698e8b6a24c9315ce953b09dddbfabb2476c8b720b2ff2beb2ec73ef111b691c7dcd87f5e42bcba4a7bc385b7f728b2ab44@54.176.105.93:30303",
   "enode://ee881be9a8cba987fb197afe5e85de002c21fb8f3805b1114c1a8c084d231fbd5437d83915e1656b5225c16dd4cc0ad89d2ebe566b88b2fc5622a8bffb8f7959@50.18.50.100:30303",

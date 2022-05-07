@@ -10,19 +10,19 @@ The recommended genesis file is `genesis.json`. It has the following SHA256 hash
 
 ```
 $ shasum -a 256 bttc/genesis.json 
-c2aee4c5562b8572052597d8cb541c5522f415c126fbdb524782a17ef22bfbdb  bttc/genesis.json
+133e1b696be10b88c9eae6b9a63c4aeada77e597fe75213cc082228bb8eb047a  bttc/genesis.json
 $ shasum -a 256 delivery/config/genesis.json
 1a30f6787d0348832215f4e2c06fb8c4ab57d0a96337a183f1610ff966bad81b  delivery/config/genesis.json
 $ b2sum bttc/genesis.json 
-f04293da6d5152510a015dac386ba80c9cdde87b723888718caea7fab9895494f82e121cb550db041038eb7102fbe4282238536cc38e0e6d79e6a9f85167ed21  bttc/genesis.json
+5d4d5211af5ba274a9c3bb00e7065f8c3ad033ea9295e0a96f5ef3d97f9e709a2e198a960c157d1864c980f02216b31c7ffd127a76002138b1d0cad84fdd6908  bttc/genesis.json
 $ b2sum delivery/config/genesis.json
 4590f027fd4ba286d9359e7cb4e73eb86df8753de74be80491112538af4f47756288f0af38efb23bfaabe291066ba98b2cb839396bf1d2b1d7211648947bb3d5  delivery/config/genesis.json
 ```
 
 
-The recommended software version is master branch of the [delivery](https://github.com/bttcprotocol/delivery) and [bttc](https://github.com/bttcprotocol/bttc) node software. See the installation instructions and the guide to joining mainnet [here](https://doc.bittorrentchain.io/v1/doc/node.html).
+The recommended software version is master branch of the [delivery](https://github.com/bttcprotocol/delivery) and [bttc](https://github.com/bttcprotocol/bttc) node software. See the installation instructions and the guide to join mainnet [here](https://doc.bt.io/v1/doc/node.html).
 
-Users wishing to interact with the network should carefully review how to protect themselves and the security advisories in the recent communication provided in the docs on preparing for main net launch.
+Users wishing to interact with the network should carefully review how to protect themselves and the security advisories in the recent communication provided in the docs on preparing for mainnet launch.
 
 Please note that this is highly experimental software. In these early days, we can expect to have issues, updates, and bugs. The existing tools require advanced technical skills and involve risks which are outside of the control of the Bttc Foundation and/or the Bttc team. Any use of this open source software is done at your own risk and on a “AS IS” basis, without warranties or conditions of any kind, and any and all liability of the Bttc Foundation and/or the Bttc team for damages arising in connection to the software is excluded. Please exercise extreme caution!
 
@@ -30,7 +30,6 @@ Further, please note that it remains in the community's sole discretion to adopt
 
 ## Seed Nodes
 We request known community members who wish to run public p2p seed nodes make pull requests to add community run seed nodes below.
-
 ```
 Seed nodes
 ```

@@ -31,7 +31,7 @@ bttc --datadir $DATA_DIR \
   --txpool.accountqueue 64 \
   --txpool.globalqueue 131072 \
   --txpool.lifetime '1h30m0s' \
-  --nodiscover --maxpeers 1 \
+  --nodiscover --maxpeers 20 \
   --metrics \
   --pprof --pprof.port 7071 --pprof.addr '0.0.0.0' \
   --allow-insecure-unlock \

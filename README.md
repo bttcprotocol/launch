@@ -20,7 +20,7 @@ $ b2sum delivery/config/genesis.json
 ```
 
 
-The recommended software version is master branch of the [delivery](https://github.com/bttcprotocol/delivery) and [bttc](https://github.com/bttcprotocol/bttc) node software. See the installation instructions and the guide to join mainnet [here](https://doc.bt.io/v1/doc/node.html).
+The recommended software version is master branch of the [delivery](https://github.com/bttcprotocol/delivery) and [bttc](https://github.com/bttcprotocol/bttc) node software. See the installation instructions and the guide to join mainnet [here](https://doc.bt.io/docs/node/build-fullnode).
 
 Users wishing to interact with the network should carefully review how to protect themselves and the security advisories in the recent communication provided in the docs on preparing for mainnet launch.
 

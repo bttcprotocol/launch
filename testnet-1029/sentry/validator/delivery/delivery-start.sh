@@ -4,4 +4,4 @@ set -x #echo on
 
 DELIVERY_HOME_DIR=~/.deliveryd
 
-deliveryd --home $DELIVERY_HOME_DIR start
+deliveryd --chain donau --home $DELIVERY_HOME_DIR start

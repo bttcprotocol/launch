@@ -6,6 +6,7 @@ BTTC_DIR=${BTTC_DIR:-~/.bttc}
 DATA_DIR=$BTTC_DIR/data
 
 bttc --datadir $DATA_DIR \
+  --bttc-mainnet \
   --port 30303 \
   --bor.heimdall "http://localhost:1317" \
   --http --http.addr '0.0.0.0' \

@@ -9,6 +9,7 @@ ADDRESS="`cat $BTTC_DIR/address.txt`"
 
 
 bttc --datadir $DATA_DIR \
+  --bttc-donau \
   --port 30303 \
   --bor.heimdall "http://localhost:1317" \
   --http --http.addr '127.0.0.1' \
